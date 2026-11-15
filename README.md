@@ -3,7 +3,7 @@
 [![check](https://github.com/tizenarchivemanager-art/Tizen-Archive-Manager/actions/workflows/check.yml/badge.svg)](https://github.com/tizenarchivemanager-art/Tizen-Archive-Manager/actions/workflows/check.yml)
 
 Android app of the [Tizen Archive](https://tizen-archive.com) project (named Tizen Companion Installer up to 0.3.0)
-that installs Tizen watch packages (`.wgt`, `.tpk`) on a Samsung Galaxy Watch or Gear watch, without a computer. It has two ways of sending, chosen with a switch at the top of the screen:
+that installs Tizen watch packages (`.wgt`, `.tpk`) on a Samsung Galaxy Watch or Gear watch, without a computer. Compatibility is predicted from the package certificate chain; it is not a guarantee that a watch will accept a package. It has two ways of sending, chosen with a switch at the top of the screen:
 
 - **Galaxy Wearable** (no developer mode needed). For every package the app builds a tiny code-free companion APK that
   carries the package in `assets/`, signs it with a key kept in the Android Keystore and asks Android to install it.
@@ -54,6 +54,12 @@ Both ways install only what the watch's own package manager accepts (a valid sto
   the button, port 26101) and never to anything else.
 - English interface; Android uses available system-language translations and falls back to English.
 
+## Screenshots
+
+| Connection setup | Wi-Fi installation | Packages on the watch |
+|---|---|---|
+| ![Connection setup](fastlane/metadata/android/en-US/images/connection-setup.png) | ![Wi-Fi installation](fastlane/metadata/android/en-US/images/install-wifi.png) | ![Packages on the watch](fastlane/metadata/android/en-US/images/on-watch-packages.png) |
+
 ## Requirements
 
 - Android 8.0 or newer.
@@ -79,15 +85,9 @@ Wi-Fi way:
 
 ## Install
 
-Download the APK from the [latest release](https://github.com/tizenarchivemanager-art/Tizen-Archive-Manager/releases/latest)
-and open it on the phone (Android asks to allow installs from your browser or file manager).
+No APK release has been published in this fork yet. Do not use the upstream project's release APK as a release of this fork.
 
-Verify the download:
-
-- SHA-256 of the file: in the `.sha256` file next to the APK and in the release notes;
-- signing certificate SHA-256:
-  `82:F1:DB:D6:FB:4E:F4:B6:8F:3B:07:C6:2A:95:C4:DC:D2:94:C0:B0:F1:E7:C4:E5:56:89:1F:45:2E:7B:8B:D9`
-  (`apksigner verify --print-certs`). Every release is signed with this key, so updates install in place.
+When a fork release is published, its release page must provide the APK, its SHA-256 checksum and the signing-certificate fingerprint verified from that APK with `apksigner verify --print-certs`. The fork must use a signing key it controls; the upstream project's signing fingerprint is not evidence of the fork's signing identity.
 
 F-Droid: planned. F-Droid only takes apps that have been developed for at least three months, so the submission is
 postponed to early 2027; see [docs/RELEASING.md](docs/RELEASING.md).
