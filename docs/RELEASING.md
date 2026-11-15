@@ -28,7 +28,7 @@ gh release create v<versionName> \
   -R tizenarchivemanager-art/Tizen-Archive-Manager --verify-tag --title "Tizen Archive <versionName>" --notes-file notes.md
 ```
 
-Use the release signing key described above for the APK. Keep the key and passwords outside the repository.
+Use a release signing key controlled by the fork maintainer. Do not copy the upstream project's signing fingerprint or imply that the fork can sign with the upstream private key. Verify the fingerprint from the actual APK before publishing it. Keep the key and passwords outside the repository. The fork currently has no published GitHub release, so no fork release fingerprint is established yet.
 
 ## Documentation privacy and technical test data
 
