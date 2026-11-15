@@ -540,7 +540,7 @@ internal class MainViewModel(private val deps: Dependencies) : ViewModel(), Main
     private fun refreshMissing() {
         val missing = buildSet {
             if (!platform.isInstalled(GALAXY_WEARABLE)) add(Missing.GALAXY_WEARABLE)
-            if (!platform.isInstalled(GEAR_PLUGIN)) add(Missing.GEAR_PLUGIN)
+            if (!platform.isInstalled(GEAR_PLUGIN) && !platform.isInstalled(GEAR_S_PLUGIN)) add(Missing.GEAR_PLUGIN)
             if (!platform.canRequestPackageInstalls()) add(Missing.INSTALL_PERMISSION)
         }
         _state.update { it.copy(missing = missing) }
@@ -1318,6 +1318,7 @@ internal class MainViewModel(private val deps: Dependencies) : ViewModel(), Main
     private companion object {
         const val GALAXY_WEARABLE = "com.samsung.android.app.watchmanager"
         const val GEAR_PLUGIN = "com.samsung.android.geargplugin"
+        const val GEAR_S_PLUGIN = "com.samsung.android.gearoplugin"
         const val INCOMING_DIR = "incoming"
         const val CAPTURE_DIR = "capture"
         const val APP_UPDATE_DIR = "app-update"
